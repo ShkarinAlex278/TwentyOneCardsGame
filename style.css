@@ -1,0 +1,279 @@
+body {
+  background-color: #337835;
+  width: 1120px;
+  height: 500px;
+}
+
+.myHeader {
+  text-align: center;
+  color: #7d9318;
+  /* margin-top: 90px; */
+}
+
+.conteiner {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  /* background-color: plum; */
+}
+
+.busitalsep-rovidekome {
+  width: 20%;
+  height: 100%;
+  margin: 0px;
+  margin-left: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #0ee916; */
+}
+
+img {
+  border: 1px solid #c3bcbc;
+  padding: 3px;
+  box-shadow: 0 0 5px #2f2d2d;
+  width: 150px;
+  height: auto;
+}
+
+.minaden {
+  background: #fff;
+  position: absolute;
+  /* cursor: pointer; */
+
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+#moveCardID {
+  z-index: 1;
+}
+
+#bankCardDeck1,
+#bankCardDeck2,
+#bankCardDeck3,
+#bankCardDeck4,
+#bankCardDeck5,
+#bankCardDeck6,
+#bankCardDeck7,
+#bankCardDeck8,
+#bankCardDeck9,
+#bankCardDeck10 {
+  visibility: hidden;
+  /* visibility: visible; */
+}
+/* .pix:nth:child(1) {
+  z-index: 1;
+}
+.minaden:nth-child(2) {
+  z-index: 3;
+}
+.minaden:nth-child(3) {
+  z-index: 2;
+}
+.busitalsep-rovidekome:hover .minaden:nth-child(1) {
+  -webkit-transform: rotate(15deg);
+  transform: rotate(15deg);
+
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.busitalsep-rovidekome:hover .minaden:nth-child(2) {
+  -webkit-transform: rotate(7deg);
+  transform: rotate(7deg);
+
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+
+.busitalsep-rovidekome:hover .minaden:nth-child(3) {
+  -webkit-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+.usacoptanuc-asetsekoms {
+  background: #0ee916;
+  padding: 10px 15px;
+  color: #f5f5f5;
+  font-size: 14px;
+  position: relative;
+  z-index: 9;
+  top: 90px;
+  left: 198px;
+
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+
+  -webkit-opacity: 0;
+  opacity: 0;
+}
+.usacoptanuc-asetsekoms:hover {
+  background: #337835;
+}
+.busitalsep-rovidekome:hover .usacoptanuc-asetsekoms {
+  left: 225px;
+
+  -webkit-opacity: 1;
+  opacity: 1;
+} */
+
+.players {
+  /* border: royalblue 2px solid; */
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#enough {
+  width: 25%;
+  color: #7d9318;
+  text-align: center;
+  visibility: hidden;
+}
+
+#enough:hover {
+  background-color: sandybrown;
+  border: springgreen 2px solid;
+  cursor: pointer;
+}
+
+#addItem {
+  width: 25%;
+  color: #7d9318;
+  text-align: center;
+  margin-left: 50%;
+  margin-right: 10px;
+}
+
+#addItem:hover {
+  background-color: sandybrown;
+  border: springgreen 2px solid;
+  cursor: pointer;
+}
+
+#bankScale {
+  color: #7d9318;
+  text-align: center;
+  visibility: hidden;
+}
+
+#PlayerScale {
+  color: #7d9318;
+  text-align: center;
+  visibility: hidden;
+}
+
+.bank-holder {
+  width: 100%;
+  height: 210px;
+  /* border: blueviolet 3px solid; */
+  display: flex;
+  flex-direction: column;
+}
+
+.bank-holder img {
+  border: 1px solid #c3bcbc;
+  padding: 3px;
+  box-shadow: 0 0 5px #2f2d2d;
+  width: 80px;
+}
+
+.bank-holder-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  height: auto;
+}
+
+form {
+  width: 100px;
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: white 2px solid; */
+}
+
+.bank-holder #bank_1 {
+  /* background-color: yellowgreen; */
+}
+.bank-holder #bank_2 {
+  /* background-color: blueviolet; */
+}
+.bank-holder #bank_3 {
+  /* background-color: tan; */
+}
+.bank-holder #bank_4 {
+  /* background-color: blueviolet; */
+}
+.bank-holder #bank_5 {
+  /* background-color: tan; */
+}
+
+.player-holder {
+  width: 100%;
+  height: 210px;
+  /* border: red 3px solid; */
+  display: flex;
+  flex-direction: column;
+}
+
+.player-holder img {
+  border: 1px solid #c3bcbc;
+  padding: 3px;
+  box-shadow: 0 0 5px #2f2d2d;
+  width: 80px;
+}
+
+.player-holder-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  height: auto;
+}
+
+form {
+  width: 100px;
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: white 2px solid; */
+}
+
+.player-holder #player_1 {
+  /* background-color: yellowgreen; */
+}
+.player-holder #player_2 {
+  /* background-color: blueviolet; */
+}
+.player-holder #player_3 {
+  /* background-color: tan; */
+}
+.player-holder #player_4 {
+  /* background-color: blueviolet; */
+}
+.player-holder #player_5 {
+  /* background-color: tan; */
+}
