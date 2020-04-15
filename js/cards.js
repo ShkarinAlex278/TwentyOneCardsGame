@@ -1,10 +1,4 @@
-// console.log("Cards..");
-
 function cards(idCard, cardArray, repit, type) {
-  // console.log("idCard", idCard);
-  // console.log("cardArray", cardArray);
-  // console.log("repit", repit);
-  // console.log("type", type);
   class Card {
     constructor(id, model, scale) {
       this.id = id;
@@ -92,33 +86,19 @@ function cards(idCard, cardArray, repit, type) {
     tT,
   ];
 
-  // console.log("myBankScale before loop..", myBankScale);
-
   if (type) {
     // Player steck
     for (let i = 0; i <= 35; i++) {
       let scale;
       if (myCardArray[i].id === window.removeNumber) {
-        //   console.log("!!!-", myCardArray[i].model);
-        //   console.log("repit", repit);
-
         switch (repit) {
           case 1:
             let openCard = document.getElementById("bankCardDeck1");
             openCard.setAttribute("src", `/image/${myCardArray[i].model}.gif`);
             myPlayerScale = myPlayerScale + myCardArray[i].scale;
-            //   console.log("bankScale1", myBankScale);
             scale = document.getElementById(
               "PlayerScale"
             ).innerHTML = `${myPlayerScale}`;
-            //   scale.getElementById("bankScale").color = "green";
-
-            myCardArray.splice(myCardArray[i].id - 1, 1); /// Stop here on 2020-0414 !!!
-
-            console.log("i -", i);
-            console.log(" window.removeNumber -", window.removeNumber);
-            console.log("myCardArray[i].id ", myCardArray[i].id);
-            console.log("myCardArray ", myCardArray);
             break;
           case 2:
             let openCard2 = document.getElementById("bankCardDeck2");
@@ -139,9 +119,7 @@ function cards(idCard, cardArray, repit, type) {
           case 4:
             let openCard4 = document.getElementById("bankCardDeck4");
             openCard4.setAttribute("src", `/image/${myCardArray[i].model}.gif`);
-            //   console.log("myCardArray[i].scale 2", myCardArray[i].scale);
             myPlayerScale = myPlayerScale + myCardArray[i].scale;
-            // console.log("bankScale4", myBankScale);
             scale = document.getElementById(
               "PlayerScale"
             ).innerHTML = `${myPlayerScale}`;
@@ -161,36 +139,28 @@ function cards(idCard, cardArray, repit, type) {
 
         if (myPlayerScale > 21) {
           scale = document.getElementById("PlayerScale");
-          scale.innerHTML = `You are lose!!!`;
           scale.style.color = "red";
-
-          // let lose = window.confirm("You are lose");
-          // if (lose == true) {
-          //   location.reload();
-          // } else {
-          //   location.reload();
-          // }
+          let playerButton = document.getElementById("addItem");
+          playerButton.style.visibility = "hidden";
+          let enoughCardButton = document.getElementById("enough");
+          enoughCardButton.style.visibility = "hidden";
+          let result = (document.getElementById("bigHeader").innerHTML =
+            "Bank Win!");
+          setTimeout("myClose()", 500);
         }
       }
     } // ens for
   } // end if
   else {
     // Bank steck
-
-    // console.log("Bank card move..");
-
     for (let i = 0; i <= 35 - window.count; i++) {
       let scale;
-      //   console.log("I..", i);
       if (myCardArray[i].id === window.removeNumber) {
-        // console.log("!!!-", myCardArray[i].model);
-        // console.log("repit", repit);
-
         switch (repit) {
           case 1:
             let openCard = document.getElementById("bankCardDeck6");
             openCard.setAttribute("src", `/image/${myCardArray[i].model}.gif`);
-            // console.log("myCardArray[i].scale 1", myCardArray[i].scale);
+
             myBankScale = myBankScale + myCardArray[i].scale;
             checkScale();
             break;
@@ -222,18 +192,6 @@ function cards(idCard, cardArray, repit, type) {
             checkScale();
             break;
         }
-
-        // if (myBankScale >= 15 || myBankScale <= 21) {
-        //   scale = document.getElementById("PlayerScale");
-        //   scale.style.color = "Uhhhaaa";
-
-        // let lose = window.confirm("You are lose");
-        // if (lose == true) {
-        //   location.reload();
-        // } else {
-        //   location.reload();
-        // }
-        // }
       }
     } // ens for
   }
@@ -241,37 +199,46 @@ function cards(idCard, cardArray, repit, type) {
 }
 
 function checkScale() {
-  // console.log("checkScale() works..");
-  // console.log("myBankScale..", myBankScale);
   if (myBankScale > 21) {
-    // console.log("myBankScale > 21", myBankScale);
     scale = document.getElementById("BankScale").innerHTML = `${myBankScale}`;
     let result = (document.getElementById("bigHeader").innerHTML =
       "Player Win!!!");
+    setTimeout("myClose()", 500);
   } else {
     if (myBankScale >= 17 && myBankScale <= 21) {
       scale = document.getElementById("BankScale").innerHTML = `${myBankScale}`;
 
       if (myPlayerScale > myBankScale) {
-        // console.log("myBankScale Pl win", myBankScale);
-        // console.log("myPlayerScale Pl win", myPlayerScale);
         scale = document.getElementById(
           "BankScale"
         ).innerHTML = `${myBankScale}`;
         let result = (document.getElementById("bigHeader").innerHTML =
           "Player Win!!!");
+        setTimeout("myClose()", 500);
       } else {
-        // console.log("myBankScale Bank win", myBankScale);
-        // console.log("myPlayerScale bank win", myPlayerScale);
         scale = document.getElementById(
           "BankScale"
         ).innerHTML = `${myBankScale}`;
         let result = (document.getElementById("bigHeader").innerHTML =
           "Bank Win!");
+        let playerButton = document.getElementById("addItem");
+        playerButton.style.visibility = "hidden";
+        let enoughCardButton = document.getElementById("enough");
+        enoughCardButton.style.visibility = "hidden";
+        setTimeout("myClose()", 500);
       }
     } else {
       scale = document.getElementById("BankScale").innerHTML = `${myBankScale}`;
       setTimeout("BankGame()", 1000);
     }
+  }
+}
+
+function myClose() {
+  let lose = window.confirm("You are lose. Would you like to play again?");
+  if (lose == true) {
+    location.reload();
+  } else {
+    window.close();
   }
 }
