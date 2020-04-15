@@ -3,10 +3,10 @@ console.log("FileOpened..");
 var count = 0;
 var bankCount = 0;
 
-console.log("count", count);
+// console.log("count", count);
 let myBankScale = 0;
 let myPlayerScale = 0;
-console.log("myBankScale in main.js ..", myBankScale);
+// console.log("myBankScale in main.js ..", myBankScale);
 
 let removeNumber;
 // console.log("Number1 - ", removeNumber);
@@ -16,70 +16,72 @@ let cardArray = [
   3,
   4,
   5,
-  6,
-  7,
-  8,
-  9,
-  10,
-  11,
-  12,
-  13,
-  14,
-  15,
-  16,
-  17,
-  18,
-  19,
-  20,
-  21,
-  22,
-  23,
-  24,
-  25,
-  26,
-  27,
-  28,
-  29,
-  30,
-  31,
-  32,
-  33,
-  34,
-  35,
-  36,
+  // 6,
+  // 7,
+  // 8,
+  // 9,
+  // 10,
+  // 11,
+  // 12,
+  // 13,
+  // 14,
+  // 15,
+  // 16,
+  // 17,
+  // 18,
+  // 19,
+  // 20,
+  // 21,
+  // 22,
+  // 23,
+  // 24,
+  // 25,
+  // 26,
+  // 27,
+  // 28,
+  // 29,
+  // 30,
+  // 31,
+  // 32,
+  // 33,
+  // 34,
+  // 35,
+  // 36,
 ];
-// console.log("cardArray", cardArray);
+console.log("cardArray 1 -", cardArray);
 
 function randomArray() {
-  let rand = cardArray;
+  // let rand = cardArray;
   //   console.log("Rand", rand);
   let randNumber = cardArray[Math.floor(Math.random() * cardArray.length)];
   window.removeNumber = randNumber + 1;
-  //   console.log("Random number = ", randNumber);
-  //   console.log("window.removeNumber = ", window.removeNumber);
+  // console.log("Random number = ", randNumber);
+  // console.log("window.removeNumber = ", window.removeNumber);
   //   console.log("cardArray[randNumber] = ", cardArray[window.removeNumber]);
+  // console.log("cardArray 2 -", cardArray);
 
-  rand.splice(cardArray[window.removeNumber], 1); // начиная с позиции 1, удалить 1 элемент
-  //   console.log("new rand - ", rand);
-  cardArray = rand;
+  // cardArray.splice(cardArray[removeNumber], 1); // начиная с позиции 1, удалить 1 элемент
+  cardArray.splice(randNumber, 1);
+  // console.log("cardArray 3 -", cardArray);
+  // cardArray = rand;
   //   console.log("New cardArray - ", cardArray);
 }
 
 function newGame() {
-  console.log("Function newGame..");
-  console.log("window.count 1 - ", window.count);
+  // console.log("Function newGame..");
+  // console.log("window.count 1 - ", window.count);
   window.count++;
   //   let con = window.count;
   //   con++;
   //   window.count = con;
-  console.log("window.count 2 - ", window.count);
+  // console.log("window.count 2 - ", window.count);
 
   if (window.count) {
     let newGameButton = document.getElementById("addItem");
     newGameButton.innerHTML = `More card`;
     let enoughCardButton = document.getElementById("enough");
     enoughCardButton.style.visibility = "visible";
-    let PlayerHeaderScale = document.getElementById("bankScale");
+    let PlayerHeaderScale = document.getElementById("PlayerScale");
     PlayerHeaderScale.style.visibility = "visible";
   }
 
@@ -122,32 +124,32 @@ function newGame() {
 
       switch (window.count) {
         case 1:
-          let bankCardDeck1 = document.getElementById("bankCardDeck1");
-          bankCardDeck1.style.visibility = "visible";
+          let playerCardDeck1 = document.getElementById("bankCardDeck1");
+          playerCardDeck1.style.visibility = "visible";
           randomArray(); // create random card and change array of cards..
           cards(window.Number, cardArray, window.count, true); // Choose card from array.
           break;
         case 2:
-          let bankCardDeck2 = document.getElementById("bankCardDeck2");
-          bankCardDeck2.style.visibility = "visible";
+          let playerCardDeck2 = document.getElementById("bankCardDeck2");
+          playerCardDeck2.style.visibility = "visible";
           randomArray(); // create random card and change array of cards..
           cards(window.removeNumber, cardArray, window.count, true); // Choose card from array.
           break;
         case 3:
-          let bankCardDeck3 = document.getElementById("bankCardDeck3");
-          bankCardDeck3.style.visibility = "visible";
+          let playerCardDeck3 = document.getElementById("bankCardDeck3");
+          playerCardDeck3.style.visibility = "visible";
           randomArray(); // create random card and change array of cards..
           cards(window.removeNumber, cardArray, window.count, true); // Choose card from array.
           break;
         case 4:
-          let bankCardDeck4 = document.getElementById("bankCardDeck4");
-          bankCardDeck4.style.visibility = "visible";
+          let playerCardDeck4 = document.getElementById("bankCardDeck4");
+          playerCardDeck4.style.visibility = "visible";
           randomArray(); // create random card and change array of cards..
           cards(window.removeNumber, cardArray, window.count, true); // Choose card from array.
           break;
         case 5:
-          let bankCardDeck5 = document.getElementById("bankCardDeck5");
-          bankCardDeck5.style.visibility = "visible";
+          let playerCardDeck5 = document.getElementById("bankCardDeck5");
+          playerCardDeck5.style.visibility = "visible";
           randomArray(); // create random card and change array of cards..
           cards(window.removeNumber, cardArray, window.count, true); // Choose card from array.
           break;
@@ -163,14 +165,14 @@ function newGame() {
 // }
 
 function BankGame() {
-  console.log("BankGame..");
-  console.log("window.bankCount..", window.bankCount);
+  // console.log("BankGame..");
+  // console.log("window.bankCount..", window.bankCount);
 
   let playerButton = document.getElementById("addItem");
   playerButton.style.visibility = "hidden";
   let enoughCardButton = document.getElementById("enough");
   enoughCardButton.style.visibility = "hidden";
-  let bankHeaderScale = document.getElementById("PlayerScale");
+  let bankHeaderScale = document.getElementById("BankScale");
   bankHeaderScale.style.visibility = "visible";
 
   window.bankCount++;
@@ -211,10 +213,10 @@ function BankGame() {
     moveCardID.style.transform = "rotate(" + round + "deg)";
     // console.log("position", position);
     if (position >= -6 && position <= -3) {
-      console.log("done");
+      // console.log("done");
       moveCardID.style.visibility = "hidden";
       //   console.log("con bank", con);
-      console.log("window.bankCount..", window.bankCount);
+      // console.log("window.bankCount..", window.bankCount);
       switch (window.bankCount) {
         case 1:
           let bankCardDeck1 = document.getElementById("bankCardDeck6");

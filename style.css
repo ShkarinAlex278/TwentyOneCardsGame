@@ -168,7 +168,7 @@ img {
   cursor: pointer;
 }
 
-#bankScale {
+#BankScale {
   color: #7d9318;
   text-align: center;
   visibility: hidden;
@@ -213,22 +213,6 @@ form {
   /* border: white 2px solid; */
 }
 
-.bank-holder #bank_1 {
-  /* background-color: yellowgreen; */
-}
-.bank-holder #bank_2 {
-  /* background-color: blueviolet; */
-}
-.bank-holder #bank_3 {
-  /* background-color: tan; */
-}
-.bank-holder #bank_4 {
-  /* background-color: blueviolet; */
-}
-.bank-holder #bank_5 {
-  /* background-color: tan; */
-}
-
 .player-holder {
   width: 100%;
   height: 210px;
@@ -260,20 +244,4 @@ form {
   justify-content: center;
   align-items: center;
   /* border: white 2px solid; */
-}
-
-.player-holder #player_1 {
-  /* background-color: yellowgreen; */
-}
-.player-holder #player_2 {
-  /* background-color: blueviolet; */
-}
-.player-holder #player_3 {
-  /* background-color: tan; */
-}
-.player-holder #player_4 {
-  /* background-color: blueviolet; */
-}
-.player-holder #player_5 {
-  /* background-color: tan; */
 }

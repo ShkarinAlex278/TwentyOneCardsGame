@@ -1,10 +1,10 @@
 // console.log("Cards..");
 
 function cards(idCard, cardArray, repit, type) {
-  console.log("idCard", idCard);
-  console.log("cardArray", cardArray);
-  console.log("repit", repit);
-  console.log("type", type);
+  // console.log("idCard", idCard);
+  // console.log("cardArray", cardArray);
+  // console.log("repit", repit);
+  // console.log("type", type);
   class Card {
     constructor(id, model, scale) {
       this.id = id;
@@ -92,7 +92,7 @@ function cards(idCard, cardArray, repit, type) {
     tT,
   ];
 
-  console.log("myBankScale before loop..", myBankScale);
+  // console.log("myBankScale before loop..", myBankScale);
 
   if (type) {
     // Player steck
@@ -109,16 +109,23 @@ function cards(idCard, cardArray, repit, type) {
             myPlayerScale = myPlayerScale + myCardArray[i].scale;
             //   console.log("bankScale1", myBankScale);
             scale = document.getElementById(
-              "bankScale"
+              "PlayerScale"
             ).innerHTML = `${myPlayerScale}`;
             //   scale.getElementById("bankScale").color = "green";
+
+            myCardArray.splice(myCardArray[i].id - 1, 1); /// Stop here on 2020-0414 !!!
+
+            console.log("i -", i);
+            console.log(" window.removeNumber -", window.removeNumber);
+            console.log("myCardArray[i].id ", myCardArray[i].id);
+            console.log("myCardArray ", myCardArray);
             break;
           case 2:
             let openCard2 = document.getElementById("bankCardDeck2");
             openCard2.setAttribute("src", `/image/${myCardArray[i].model}.gif`);
             myPlayerScale = myPlayerScale + myCardArray[i].scale;
             scale = document.getElementById(
-              "bankScale"
+              "PlayerScale"
             ).innerHTML = `${myPlayerScale}`;
             break;
           case 3:
@@ -126,7 +133,7 @@ function cards(idCard, cardArray, repit, type) {
             openCard3.setAttribute("src", `/image/${myCardArray[i].model}.gif`);
             myPlayerScale = myPlayerScale + myCardArray[i].scale;
             scale = document.getElementById(
-              "bankScale"
+              "PlayerScale"
             ).innerHTML = `${myPlayerScale}`;
             break;
           case 4:
@@ -136,7 +143,7 @@ function cards(idCard, cardArray, repit, type) {
             myPlayerScale = myPlayerScale + myCardArray[i].scale;
             // console.log("bankScale4", myBankScale);
             scale = document.getElementById(
-              "bankScale"
+              "PlayerScale"
             ).innerHTML = `${myPlayerScale}`;
             break;
           case 5:
@@ -147,13 +154,13 @@ function cards(idCard, cardArray, repit, type) {
             );
             myPlayerScale = myPlayerScale + myCardArray[i].scale;
             scale = document.getElementById(
-              "bankScale"
+              "PlayerScale"
             ).innerHTML = `${myPlayerScale}`;
             break;
         }
 
         if (myPlayerScale > 21) {
-          scale = document.getElementById("bankScale");
+          scale = document.getElementById("PlayerScale");
           scale.innerHTML = `You are lose!!!`;
           scale.style.color = "red";
 
@@ -170,20 +177,20 @@ function cards(idCard, cardArray, repit, type) {
   else {
     // Bank steck
 
-    console.log("Bank card move..");
+    // console.log("Bank card move..");
 
     for (let i = 0; i <= 35 - window.count; i++) {
       let scale;
       //   console.log("I..", i);
       if (myCardArray[i].id === window.removeNumber) {
-        console.log("!!!-", myCardArray[i].model);
-        console.log("repit", repit);
+        // console.log("!!!-", myCardArray[i].model);
+        // console.log("repit", repit);
 
         switch (repit) {
           case 1:
             let openCard = document.getElementById("bankCardDeck6");
             openCard.setAttribute("src", `/image/${myCardArray[i].model}.gif`);
-            console.log("myCardArray[i].scale 1", myCardArray[i].scale);
+            // console.log("myCardArray[i].scale 1", myCardArray[i].scale);
             myBankScale = myBankScale + myCardArray[i].scale;
             checkScale();
             break;
@@ -230,7 +237,7 @@ function cards(idCard, cardArray, repit, type) {
       }
     } // ens for
   }
-  console.log("Card done..");
+  // console.log("Card done..");
 }
 
 function checkScale() {
@@ -238,20 +245,18 @@ function checkScale() {
   // console.log("myBankScale..", myBankScale);
   if (myBankScale > 21) {
     // console.log("myBankScale > 21", myBankScale);
-    scale = document.getElementById("PlayerScale").innerHTML = `${myBankScale}`;
+    scale = document.getElementById("BankScale").innerHTML = `${myBankScale}`;
     let result = (document.getElementById("bigHeader").innerHTML =
       "Player Win!!!");
   } else {
     if (myBankScale >= 17 && myBankScale <= 21) {
-      scale = document.getElementById(
-        "PlayerScale"
-      ).innerHTML = `${myBankScale}`;
+      scale = document.getElementById("BankScale").innerHTML = `${myBankScale}`;
 
       if (myPlayerScale > myBankScale) {
         // console.log("myBankScale Pl win", myBankScale);
         // console.log("myPlayerScale Pl win", myPlayerScale);
         scale = document.getElementById(
-          "PlayerScale"
+          "BankScale"
         ).innerHTML = `${myBankScale}`;
         let result = (document.getElementById("bigHeader").innerHTML =
           "Player Win!!!");
@@ -259,15 +264,13 @@ function checkScale() {
         // console.log("myBankScale Bank win", myBankScale);
         // console.log("myPlayerScale bank win", myPlayerScale);
         scale = document.getElementById(
-          "PlayerScale"
+          "BankScale"
         ).innerHTML = `${myBankScale}`;
         let result = (document.getElementById("bigHeader").innerHTML =
           "Bank Win!");
       }
     } else {
-      scale = document.getElementById(
-        "PlayerScale"
-      ).innerHTML = `${myBankScale}`;
+      scale = document.getElementById("BankScale").innerHTML = `${myBankScale}`;
       setTimeout("BankGame()", 1000);
     }
   }
